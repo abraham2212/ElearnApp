@@ -1,0 +1,40 @@
+﻿@model LoginVM
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container">
+    <div class="form-body">
+        <div class="row d-flex align-items-center justify-content-center">
+          
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items" style="background: #FF8A00;">
+                        <h3>Login</h3>
+                        <p>Fill in the data below.</p>
+                        <div class="text-danger" asp-validation-summary="All">@ViewBag.error</div>
+                        <form class="requires-validation" asp-action="Login" method="post">
+                            <div class="col-md-12">
+                                <input class="form-control" asp-for="UsernameOrEmail" placeholder="Username Or Email" required>
+                                <span class="text-danger" asp-validation-for="UsernameOrEmail"></span>
+                            </div>
+
+                            <div class="col-md-12">
+                                <input class="form-control" asp-for="Password" placeholder="Password" required>
+                                <span class="text-danger" asp-validation-for="Password"></span>
+                            </div>
+                           
+                            <div class="col-md-12">
+                                <input type="checkbox">
+                                <label class="form-check-label">Remember me</label>
+                            </div>
+                            <button id="submit" type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

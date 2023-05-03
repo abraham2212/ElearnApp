@@ -1,0 +1,44 @@
+﻿@model CourseCreateVM
+@{
+
+    ViewData["Title"] = "Create";
+}
+
+<div class="container my-5">
+    <h1>Create</h1>
+    <form class="forms-sample" method="post" asp-action="Create" enctype="multipart/form-data">
+        <div class="form-group mt-5">
+            <label for="formFile" class="form-label">Choose images</label>
+            <input class="form-control" asp-for="Photos" id="formFile">
+            <span class="text-danger" asp-validation-for="Photos">@ViewBag.error</span>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Title</label>
+            <input type="text" class="form-control" asp-for="Name" id="exampleInputEmail1">
+            <span class="text-danger" asp-validation-for="Name">@ViewBag.error</span>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Description</label>
+            <input type="text" class="form-control" asp-for="Description" id="exampleInputEmail1">
+            <span class="text-danger" asp-validation-for="Description">@ViewBag.error</span>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Price</label>
+            <input type="number" step=".01" class="form-control" asp-for="Price" id="exampleInputEmail1">
+            <span class="text-danger" asp-validation-for="Price">@ViewBag.error</span>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Sale Count</label>
+            <input type="number" class="form-control" asp-for="SaleCount" id="exampleInputEmail1">
+            <span class="text-danger" asp-validation-for="SaleCount">@ViewBag.error</span>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Author Fullname</label>
+            <select class="form-control" asp-for="AuthorId" asp-items="@ViewBag.authors"></select>
+        </div>
+        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+        <button class="btn btn-dark">Cancel</button>
+    </form>
+</div>
+
+

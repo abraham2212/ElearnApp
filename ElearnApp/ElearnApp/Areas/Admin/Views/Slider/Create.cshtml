@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container mt-5">
+    <h1>Slider Create</h1>
+    <form class="forms-sample">
+        <div class="form-group mt-5">
+            <label for="formFile" class="form-label">Choose a new image for slider</label>
+            <input class="form-control" type="file" id="formFile">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Title</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Title">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Description</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Description">
+        </div>
+        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+        <button class="btn btn-dark">Cancel</button>
+    </form>
+    <div class="back">
+        <a class="btn btn-primary btn-rounded btn-fw my-5" asp-action="Index">
+            <i class="mdi mdi-arrow-left-bold"></i>
+            Back to main page
+        </a>
+    </div>
+</div>
+
+

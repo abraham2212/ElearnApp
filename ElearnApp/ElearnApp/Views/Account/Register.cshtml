@@ -1,0 +1,53 @@
+﻿@model RegisterVM
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container">
+    <div class="form-body">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items" style="background: #FF8A00;">
+                        <h3>Register</h3>
+                        <p>Fill in the data below.</p>
+                        <div class="text-white" asp-validation-summary="All">@ViewBag.error</div>
+
+                        <form class="requires-validation" asp-action="Register" method="post" >
+                            <div class="col-md-12">
+                                <input class="form-control"  asp-for="FullName" placeholder="Full Name" required>
+                                <span class="text-danger" asp-validation-for="FullName"></span>
+                            </div>
+
+                            <div class="col-md-12">
+                                <input class="form-control" asp-for="Email"  placeholder="E-mail Address" required>
+                                <span class="text-danger" asp-validation-for="Email"></span>
+                            </div>
+                            <div class="col-md-12">
+                                <input class="form-control" asp-for="Username"  placeholder="User name" required>
+                                <span class="text-danger" asp-validation-for="Username"></span>
+                            </div>
+
+                            <div class="col-md-12">
+                                <input class="form-control" asp-for="Password" placeholder="Password" required>
+                                <span class="text-danger" asp-validation-for="Password"></span>
+                            </div>
+                            <div class="col-md-12">
+                                <input class="form-control" asp-for="ConfirmPassword" placeholder="Confirm Password" required>
+                                <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" asp-for="IsRememberMe">
+                                <label class="form-check-label">Remember me</label>
+                            </div>
+                           
+                            <button id="submit" type="submit" class="btn btn-primary">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

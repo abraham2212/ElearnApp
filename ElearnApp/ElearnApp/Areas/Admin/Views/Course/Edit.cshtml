@@ -1,0 +1,67 @@
+﻿@model CourseUpdateVM
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="container my-5">
+    <h1>Create</h1>
+    <div class="d-flex align-items-center images">
+
+        @foreach (var item in Model.CourseImages)
+        {
+            <div style="width:200px; margin-right:10px;" data-id="@item.Id">
+                <img class="img-fluid" src="~/images/@item.Image"/>
+                <div class="d-flex align-items-center justify-content-center" data-id="@item.Id">
+                    <a class="delete-courseimage"><i class="fa-solid fa-trash" style="color: #c60101; cursor:pointer;"></i></a>
+                    <div class="statuses" style=" margin-left:10px;">
+                        @if (item.IsMain)
+                        {
+                            <div class="active-status courseImage-status"></div>
+                        }
+                        else
+                        {
+                            <div class="de-active courseImage-status"></div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <form class="forms-sample" method="post" asp-action="Edit" enctype="multipart/form-data">
+        <div class="form-group mt-5">
+            <label for="formFile" class="form-label">Choose images</label>
+            <input class="form-control" asp-for="Photos" id="formFile">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Title</label>
+            <input type="text" class="form-control" asp-for="Name" id="exampleInputEmail1">
+            <span class="text-danger" asp-validation-for="Name">@ViewBag.error</span>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Description</label>
+            <input type="text" class="form-control" asp-for="Description" id="exampleInputEmail1">
+            <span class="text-danger" asp-validation-for="Description">@ViewBag.error</span>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Price</label>
+            <input type="number" step=".01" class="form-control" asp-for="Price" id="exampleInputEmail1">
+            <span class="text-danger" asp-validation-for="Price">@ViewBag.error</span>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Sale Count</label>
+            <input type="number" class="form-control" asp-for="SaleCount" id="exampleInputEmail1">
+            <span class="text-danger" asp-validation-for="SaleCount">@ViewBag.error</span>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Author Fullname</label>
+            <select class="form-control" asp-for="AuthorId" asp-items="@ViewBag.authors"></select>
+        </div>
+        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+        <button class="btn btn-dark" asp-action="Index">Cancel</button>
+    </form>
+</div>
+
+
+
+
